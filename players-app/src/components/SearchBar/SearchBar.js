@@ -1,33 +1,32 @@
 import React from 'react';
 
 const SearchBar = props => {
-  return <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  return <nav class="navbar navbar-expand-lg navbar-light bg-light pl-2">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">  
-         <input class="form-control mr-sm-2" type="Player Name" placeholder="Player Name" aria-label="Age"></input>
+         <input class="form-control mr-sm-2 pl-0" type="Player Name" placeholder="Player Name" aria-label="Age"></input>
       </li>
-      <li class="nav-item dropdown show">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Position
-        </a>
-        <div class="dropdown-menu show" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Attacking Midfield</a>
-          <a class="dropdown-item" href="#">Central Midfield</a>
-          <a class="dropdown-item" href="#">Centre-Back</a>
-          <a class="dropdown-item" href="#">Centre-Forward</a>
-          <a class="dropdown-item" href="#">Defensive Midfield</a>
-          <a class="dropdown-item" href="#">Keeper</a>
-          <a class="dropdown-item" href="#">Left Midfield</a>
-          <a class="dropdown-item" href="#">Left Wing</a>
-          <a class="dropdown-item" href="#">Left Back</a>
-          <a class="dropdown-item" href="#">Right-Back</a>
+      <li class="nav-item dropdown show ml-2">
+        <div class="form-group">
+            <select class="form-control" multiple="">
+                <option>Attacking Midfield</option>
+                <option>Central Midfield</option>
+                <option>Centre-Back</option>
+                <option>Centre-Forward</option>
+                <option>Defensive Midfield</option>
+                <option>Keeper</option>
+                <option>Left Midfield</option>
+                <option>Left Wing</option>
+                <option>Left Back</option>
+                <option>Right-Back</option>
+            </select>
         </div>
       </li>
-      <li class="nav-item">  
+      <li class="nav-item ml-2">  
          <input class="form-control mr-sm-2" type="search" placeholder="Age" aria-label="Age"></input>
       </li>
-      <li class="nav-item">
+      <li class="nav-item ml-5">
          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </li>
     </ul> 
