@@ -2,7 +2,7 @@ import {
     FETCH_PLAYERS_BEGIN,
     FETCH_PLAYERS_SUCCESS,
     FETCH_PLAYERS_FAILURE
-} from './playersActions';
+} from './../actions/playersActions';
 
 const initialState = {
     items: [],
@@ -10,23 +10,23 @@ const initialState = {
     error: null
 };
 
-export default function playersReducer(state = initialState, action) {
+export function playersReducer(state = initialState, action) {
     switch (action.type) {
-        case FETCH_PRODUCTS_BEGIN:
+        case FETCH_PLAYERS_BEGIN:
             return {
                 ...state,
                 loading: true,
                 error: null
             };
 
-        case FETCH_PRODUCTS_SUCCESS:
+        case FETCH_PLAYERS_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 items: action.payload.players
             };
 
-        case FETCH_PRODUCTS_FAILURE:
+        case FETCH_PLAYERS_FAILURE:
             return {
                 ...state,
                 loading: false,
