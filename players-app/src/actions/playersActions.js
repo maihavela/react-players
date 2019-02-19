@@ -1,17 +1,34 @@
+import { getPlayers } from './../services/playersService';
+
 export const FETCH_PLAYERS_BEGIN = 'FETCH_PLAYERS_BEGIN';
 export const FETCH_PLAYERS_SUCCESS = 'FETCH_PLAYERS_SUCCESS';
 export const FETCH_PLAYERS_FAILURE = 'FETCH_PLAYERS_FAILURE';
 
-export const fetchPlayerssBegin = () => ({
-  type: FETCH_PLAYERS_BEGIN
-});
+export function fetchPlayers() {
+  return dispatch => {
+    dispatch(fetchPlayersBegin());
+    return getPlayers()
+      .then(success => dispatch(fetchPlayersSuccess(success)))
+      .catch(err => dispatch(fetchPlayersFailure(err)));
+  };
+}
 
-export const fetchProductsSuccess = products => ({
-  type: FETCH_PLAYERS_SUCCESS,
-  payload: { players }
-});
+function fetchPlayersBegin() {
+  return {
+    type: FETCH_PLAYERS_BEGIN
+  };
+}
 
-export const fetchProductsFailure = error => ({
-  type: FETCH_PLAYERS_FAILURE,
-  payload: { error }
-});
+function fetchPlayersSuccess(players) {
+  return {
+    type: FETCH_PLAYERS_SUCCESS,
+    payload: { players }
+  };
+}
+
+function fetchPlayersFailure(error) {
+  return {
+    type: FETCH_PLAYERS_FAILURE,
+    payload: { error }
+  };
+}
