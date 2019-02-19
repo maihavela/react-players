@@ -13,7 +13,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 ReactDOM.render(
   <Container>
     <Row>
-        <Col xs={4} md={8} lg={12} mb-2>
+        <Col xs={4} md={8} lg={12}>
          <Title title={'Football Player Finder'} />
         </Col>
         <Col xs={4} md={8} lg={12}>
