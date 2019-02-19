@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Title from './components/Title/Title.js';
 import SearchBar from './components/SearchBar/SearchBar.js';
+import PlayersList from './components/PlayersList/PlayersList.js';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -12,11 +13,14 @@ import 'bootstrap/dist/css/bootstrap.css';
 ReactDOM.render(
   <Container>
     <Row>
-        <Col xs={4} md={8} lg={12}>
+        <Col xs={4} md={8} lg={12} mb-2>
          <Title title={'Football Player Finder'} />
         </Col>
         <Col xs={4} md={8} lg={12}>
          <SearchBar />
+        </Col>
+        <Col xs={4} md={8} lg={12}>
+         <PlayersList />
         </Col>
     </Row>
   </Container>, document.getElementById('root'));

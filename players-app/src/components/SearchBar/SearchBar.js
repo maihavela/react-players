@@ -1,13 +1,13 @@
 import React from 'react';
 
 const SearchBar = props => {
-  return <nav class="navbar navbar-expand-lg navbar-light bg-light pl-2">
+  return <nav class="navbar navbar-expand-lg navbar-light bg-light pl-0">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">  
-         <input class="form-control mr-sm-2 pl-0" type="Player Name" placeholder="Player Name" aria-label="Age"></input>
+         <input class="form-control mr-sm-2" type="Player Name" placeholder="Player Name" aria-label="Age"></input>
       </li>
-      <li class="nav-item dropdown show ml-2">
+      <li class="nav-item dropdown show ml-4">
         <div class="form-group">
             <select class="form-control" multiple="">
                 <option>Attacking Midfield</option>
@@ -23,10 +23,10 @@ const SearchBar = props => {
             </select>
         </div>
       </li>
-      <li class="nav-item ml-2">  
+      <li class="nav-item ml-4">  
          <input class="form-control mr-sm-2" type="search" placeholder="Age" aria-label="Age"></input>
       </li>
-      <li class="nav-item ml-5">
+      <li class="nav-item ml-8">
          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </li>
     </ul> 
