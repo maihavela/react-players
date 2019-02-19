@@ -1,5 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+import rootReducer from "./reducers/rootReducer";
 import './index.css';
 import Title from './components/Title/Title.js';
 import SearchBar from './components/SearchBar/SearchBar.js';
@@ -10,23 +14,35 @@ import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.css';
 //import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <Container>
-    <Row>
-        <Col xs={4} md={8} lg={12}>
-         <Title title={'Football Player Finder'} />
-        </Col>
-        <Col xs={4} md={8} lg={12}>
-         <SearchBar />
-        </Col>
-        <Col xs={4} md={8} lg={12}>
-         <PlayersList />
-        </Col>
-    </Row>
-  </Container>, document.getElementById('root'));
-//registerServiceWorker();
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunk)
+);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-//serviceWorker.unregister();
+function App() {
+  return (
+    <div className="App">
+      <Container>
+        <Row>
+          <Col xs={4} md={8} lg={12}>
+            <Title title={'Football Player Finder'} />
+          </Col>
+          <Col xs={4} md={8} lg={12}>
+            <SearchBar />
+          </Col>
+          <Col xs={4} md={8} lg={12}>
+            <PlayersList />
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  rootElement
+);
