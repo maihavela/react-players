@@ -1,5 +1,4 @@
 import React from 'react';
-import { PLAYERS_POSITIONS } from './../../constants/constants';
 
 const SearchBar = props => {
   return <nav class="navbar navbar-expand-lg navbar-light bg-light pl-0">
