@@ -1,36 +1,45 @@
 import React from 'react';
+import { arrayOf, number, shape, string } from 'prop-types';
+
+const itemList = player => {
+  const { name, position, nationality, age } = player;
+
+  return (
+    <tr key={name}>
+      <td>{name}</td>
+      <td>{position}</td>
+      <td>{nationality}</td>
+      <td>{age}</td>
+    </tr>
+  );
+};
 
 const PlayersList = props => {
+    const { players } = props;
     return <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Position</th>
-                <th scope="col">Team</th>
+                <th scope="col">Nationality</th>
                 <th scope="col">Age</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
+            {players.map(itemList)}
         </tbody>
     </table>
 }
+debugger;
+/* PlayersList.defaultProps = {};
+
+PlayersList.propTypes = {
+  players: arrayOf(shape({
+    name: string.isRequired,
+    position: string.isRequired,
+    nationality: string.isRequired,
+    age: number.isRequired
+  }))
+};  */
 
 export default PlayersList;
